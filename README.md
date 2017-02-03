@@ -1,2 +1,2 @@
 # RaspiWebCar
-Raspberry PI controlled web car
+A toy car controlled by raspberry pi through web browser
