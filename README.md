@@ -24,8 +24,8 @@ A toy car controlled by raspberry pi through web browser
 
 * Install samba: **sudo apt-get install samba samba-common-bin**
 * Set samba password: **sudo smbpasswd -a pi**
-* Edit samba configure: **sudo nano /etc/samba/smb.conf**, add below section **at the end of** conf file
-```
+* Edit samba configure: **sudo nano /etc/samba/smb.conf**, add below section **_at the end of_** conf file
+   ```
     [pishare]
     comment = RaspberryPi share folder
     path = /home/pi/share
@@ -37,5 +37,5 @@ A toy car controlled by raspberry pi through web browser
     public=yes
     guest ok = yes
     valid users=pi
-```
+   ```
 
