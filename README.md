@@ -13,29 +13,41 @@ A toy car controlled by raspberry pi through web browser
 ### 2. Setup raspbian mirror and execute system update
 
 * Find Raspbian mirrors from this [Link](http://www.raspbian.org/RaspbianMirrors)
-* Edit "apt-get update" source: **sudo nano /etc/apt/sources.list**. Comment all lines and add below two lines
+* Edit "apt-get update" source: **sudo nano /etc/apt/sources.list** Comment all lines and add below two lines
   + deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main non-free contrib
   + deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main non-free contrib
-* Edit "apt-get upgrade" source, **sudo nano /etc/apt/sources.list.d/raspi.list**. Comment all lines and add below line
+* Edit "apt-get upgrade" source, **sudo nano /etc/apt/sources.list.d/raspi.list** Comment all lines and add below line
   + deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ jessie main ui
 * Update system using commands: **sudo apt-get update**, **sudo apt-get upgrade**
 
 ### 3. Setup samba share
 
 * Install samba: **sudo apt-get install samba samba-common-bin**
+* Edit samba configure: **sudo nano /etc/samba/smb.conf**
+  + Find the entries for workgroup and wins support, and set them up as follows
+  ```
+    workgroup = your_workgroup_name
+    wins support = yes
+  ```
+  + Add below section **_at the end of_** conf file
+  ```
+    [pihome]
+      comment= Pi Home
+      path=/home/pi
+      browseable=Yes
+      writeable=Yes
+      only guest=no
+      create mask=0777
+      directory mask=0777
+      public=no
+  ```
 * Set samba password: **sudo smbpasswd -a pi**
-* Edit samba configure: **sudo nano /etc/samba/smb.conf**, add below section **_at the end of_** conf file
-```
-    [pishare]
-    comment = RaspberryPi share folder
-    path = /home/pi/share
-    writeable = yes
-    read only = no
-    create mask = 0777
-    directory mask = 0777
-    browsable=yes
-    public=yes
-    guest ok = yes
-    valid users=pi
-```
+* See this [artical](http://raspberrywebserver.com/serveradmin/share-your-raspberry-pis-files-and-folders-across-a-network.html) for more details
+* Some useful samba commands
+  ```
+    sudo /etc/init.d/samba start
+    sudo /etc/init.d/samba stop
+    sudo /etc/init.d/samba restart
+    testparm
+  ```
 
