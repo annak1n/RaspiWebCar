@@ -16,7 +16,7 @@ A toy car controlled by raspberry pi through web browser
 * Edit "apt-get update" source: **sudo nano /etc/apt/sources.list**. Comment all lines and add below two lines
   + deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main non-free contrib
   + deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main non-free contrib
-* Edit "apt-get upgrade" source, **sudo nano /etc/apt/sources.d/raspi.list**. Comment all lines and add below line
+* Edit "apt-get upgrade" source, **sudo nano /etc/apt/sources.list.d/raspi.list**. Comment all lines and add below line
   + deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ jessie main ui
 * Update system using commands: **sudo apt-get update**, **sudo apt-get upgrade**
 
