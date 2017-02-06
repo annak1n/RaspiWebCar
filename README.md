@@ -51,3 +51,7 @@ A toy car controlled by raspberry pi through web browser
     testparm
   ```
 
+### 4. Install python Flask web framework
+
+* sudo apt-get install python3-flask
+
