@@ -8,7 +8,6 @@ def index():
 
 @app.route('/control_car', methods=['POST'])
 def led_handler():
-    print("Button pressed!")
     if request.form['ctrlbtn'] == "forward":
         print("...forward...")
     elif request.form['ctrlbtn'] == "backward":
@@ -17,6 +16,8 @@ def led_handler():
         print("...turnleft...")
     elif request.form['ctrlbtn'] == "turnright":
         print("...turnright...")
+    elif request.form['ctrlbtn'] == "pause":
+        print("...pause...")
     else:
         print("ERROR")
     return render_template('index.html')

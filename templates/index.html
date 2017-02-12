@@ -1,13 +1,30 @@
 <html>
 
+<head>
+    <style>
+        .button1 {
+            height: 300px;
+            width: 300px;
+            font-size: 100px;
+        }
+        
+        .button2 {
+            height: 300px;
+            width: 600px;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
 <body>
     <div class="container">
         <h2>RaspiWebCar</h2>
         <form action="/control_car" method="POST">
-            <p><button name="ctrlbtn" value="forward">前进</button></p>
-            <p><button name="ctrlbtn" value="backward">后退</button></p>
-            <p><button name="ctrlbtn" value="turnleft">左转</button></p>
-            <p><button name="ctrlbtn" value="turnright">右转</button></p>
+            <p><button class="button1" name="ctrlbtn" value="forward">前进</button>
+                <button class="button1" name="ctrlbtn" value="backward">后退</button></p>
+            <p><button class="button2" name="ctrlbtn" value="pause">暂停</button></p>
+            <p><button class="button1" name="ctrlbtn" value="turnleft">左转</button>
+                <button class="button1" name="ctrlbtn" value="turnright">右转</button></p>
         </form>
     </div>
 </body>
