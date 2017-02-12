@@ -3,10 +3,12 @@
 <body>
     <div class="container">
         <h2>RaspiWebCar</h2>
-        <button type="button" class="btn btn-primary">前进</button>
-        <button type="button" class="btn btn-success">后退</button>
-        <button type="button" class="btn btn-info">左转</button>
-        <button type="button" class="btn btn-warning">右转</button>
+        <form action="/control_car" method="POST">
+            <p><button name="ctrlbtn" value="forward">前进</button></p>
+            <p><button name="ctrlbtn" value="backward">后退</button></p>
+            <p><button name="ctrlbtn" value="turnleft">左转</button></p>
+            <p><button name="ctrlbtn" value="turnright">右转</button></p>
+        </form>
     </div>
 </body>
 
