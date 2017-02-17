@@ -55,3 +55,7 @@ A toy car controlled by raspberry pi through web browser
 
 * sudo apt-get install python3-flask
 
+### 5. Wire Raspberry Pi and L298N
+
+
+
