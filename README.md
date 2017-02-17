@@ -57,5 +57,4 @@ A toy car controlled by raspberry pi through web browser
 
 ### 5. Wire Raspberry Pi and L298N
 
-
-
+![wiring](../blob/master/wiring.jpg?raw=true)
