@@ -55,6 +55,14 @@ A toy car controlled by raspberry pi through web browser
 
 * sudo apt-get install python3-flask
 
-### 5. Wire Raspberry Pi and L298N
+### 5. Assembly raspberry car
+* Parts list
+  + Raspberry Pi 2 x 1
+  + L298N x1
+  + DC motor x 4
+  + 5V battery (Power PI)
+  + 12V battery (Power motors)
 
-![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring.jpg?raw=true)
+* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring.jpg?raw=true)
+* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring2.jpg?raw=true)
+* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring3.jpg?raw=true)
