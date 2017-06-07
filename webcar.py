@@ -101,8 +101,6 @@ def p_right(sleep_time):
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = "dfdfdffdad"
-
 @app.route('/')
 def index():
     return render_template('index2.html')
