@@ -14,7 +14,7 @@ SEC_NUM = 2
 PWM_FREQ = 1000
 PWM_DUTY = 40
 
-CAR_TIME_OUT = 0.05
+CAR_TIME_OUT = 0.06
 
 def init_gpio():
     GPIO.setmode(GPIO.BOARD)
@@ -103,7 +103,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index2.html')
+    return render_template('index.html')
 
 @app.route('/touchcontrol', methods=['GET', 'POST'])
 def mydict():
