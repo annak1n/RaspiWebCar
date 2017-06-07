@@ -107,34 +107,34 @@ app.config['SECRET_KEY'] = "dfdfdffdad"
 def index():
     return render_template('index2.html')
 
-@app.route('/mydict', methods=['GET', 'POST'])
+@app.route('/touchcontrol', methods=['GET', 'POST'])
 def mydict():
-    first_name = request.form.get("touch", "null")
-    print(first_name)
+    touch_direction = request.form.get("touch", "null")
+    print(touch_direction)
     
-    if first_name == "panup":
+    if touch_direction == "panup":
         print("...forward...")
         fwd(CAR_TIME_OUT)
-    elif first_name == "pandown":
+    elif touch_direction == "pandown":
         print("...backward...")
         back(CAR_TIME_OUT)
-    elif first_name == "panleft":
+    elif touch_direction == "panleft":
         print("...turnleft...")
         left(CAR_TIME_OUT)
-    elif first_name == "panright":
+    elif touch_direction == "panright":
         print("...turnright...")
         right(CAR_TIME_OUT)
-    elif first_name == "tap":
+    elif touch_direction == "tap":
         print("...pause...")
         stop()
-    elif first_name == "press":
+    elif touch_direction == "press":
         print("...pause...")
         stop()
     else:
         print("ERROR")
         stop()
         
-    d = {'touchDirection': first_name}
+    d = {'touchDirection': touch_direction}
     return jsonify(d)
 
 if __name__ == '__main__':

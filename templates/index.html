@@ -31,7 +31,7 @@
             // listen to events...
             mc.on("panleft panright panup pandown tap press", function (ev) {
                 myElement.textContent = ev.type;
-                $.post("/mydict", {
+                $.post("/touchcontrol", {
                     "touch": ev.type
                 }, function (data, status) {
                     //alert("direction: " + data.touchDirection);
