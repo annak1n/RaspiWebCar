@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask import jsonify
 import time
 import RPi.GPIO as GPIO
 
@@ -13,7 +14,7 @@ SEC_NUM = 2
 PWM_FREQ = 1000
 PWM_DUTY = 40
 
-CAR_TIME_OUT = 3
+CAR_TIME_OUT = 0.05
 
 def init_gpio():
     GPIO.setmode(GPIO.BOARD)
@@ -36,8 +37,8 @@ def fwd(sleep_time):
     GPIO.output(IN2,GPIO.LOW)
     GPIO.output(IN3,GPIO.HIGH)
     GPIO.output(IN4,GPIO.LOW)
-    #time.sleep(sleep_time)
-    #stop()
+    time.sleep(sleep_time)
+    stop()
 
 def back(sleep_time):
     print "---- go back ----"
@@ -45,8 +46,8 @@ def back(sleep_time):
     GPIO.output(IN2,GPIO.HIGH)
     GPIO.output(IN3,GPIO.LOW)
     GPIO.output(IN4,GPIO.HIGH)
-    #time.sleep(sleep_time)
-    #stop()
+    time.sleep(sleep_time)
+    stop()
 
 def left(sleep_time):
     print "---- turn left ----"
@@ -54,8 +55,8 @@ def left(sleep_time):
     GPIO.output(IN2,GPIO.LOW)
     GPIO.output(IN3,GPIO.HIGH)
     GPIO.output(IN4,GPIO.LOW)
-    #time.sleep(sleep_time)
-    #stop()
+    time.sleep(sleep_time)
+    stop()
 
 def right(sleep_time):
     print "---- turn right ----"
@@ -63,73 +64,86 @@ def right(sleep_time):
     GPIO.output(IN2,GPIO.LOW)
     GPIO.output(IN3,GPIO.LOW)
     GPIO.output(IN4,GPIO.LOW)
-    #time.sleep(sleep_time)
-    #stop()
+    time.sleep(sleep_time)
+    stop()
 
 def pivot_left(sleep_time):
     GPIO.output(IN1,GPIO.LOW)
     GPIO.output(IN2,GPIO.HIGH)
     GPIO.output(IN3,GPIO.LOW)
     GPIO.output(IN4,GPIO.LOW)
-    #time.sleep(sleep_time)
-    #stop()
+    time.sleep(sleep_time)
+    stop()
 
 def pivot_right(sleep_time):
     GPIO.output(IN1,GPIO.LOW)
     GPIO.output(IN2,GPIO.LOW)
     GPIO.output(IN3,GPIO.LOW)
     GPIO.output(IN4,GPIO.HIGH)
-    #time.sleep(sleep_time)
-    #stop()
+    time.sleep(sleep_time)
+    stop()
 
 def p_left(sleep_time):
     GPIO.output(IN1,GPIO.LOW)
     GPIO.output(IN2,GPIO.HIGH)
     GPIO.output(IN3,GPIO.HIGH)
     GPIO.output(IN4,GPIO.LOW)
-    #time.sleep(sleep_time)
-    #stop()
+    time.sleep(sleep_time)
+    stop()
 
 def p_right(sleep_time):
     GPIO.output(IN1,GPIO.HIGH)
     GPIO.output(IN2,GPIO.LOW)
     GPIO.output(IN3,GPIO.LOW)
     GPIO.output(IN4,GPIO.HIGH)
-    #time.sleep(sleep_time)
-    #stop()
+    time.sleep(sleep_time)
+    stop()
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = "dfdfdffdad"
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index2.html')
 
-@app.route('/control_car', methods=['POST'])
-def led_handler():
-    if request.form['ctrlbtn'] == "forward":
+@app.route('/mydict', methods=['GET', 'POST'])
+def mydict():
+    first_name = request.form.get("touch", "null")
+    print(first_name)
+    
+    if first_name == "panup":
         print("...forward...")
         fwd(CAR_TIME_OUT)
-    elif request.form['ctrlbtn'] == "backward":
+    elif first_name == "pandown":
         print("...backward...")
         back(CAR_TIME_OUT)
-    elif request.form['ctrlbtn'] == "turnleft":
+    elif first_name == "panleft":
         print("...turnleft...")
         left(CAR_TIME_OUT)
-    elif request.form['ctrlbtn'] == "turnright":
+    elif first_name == "panright":
         print("...turnright...")
         right(CAR_TIME_OUT)
-    elif request.form['ctrlbtn'] == "pause":
+    elif first_name == "tap":
+        print("...pause...")
+        stop()
+    elif first_name == "press":
         print("...pause...")
         stop()
     else:
         print("ERROR")
         stop()
-    return render_template('index.html')
+        
+    d = {'touchDirection': first_name}
+    return jsonify(d)
 
 if __name__ == '__main__':
+
     init_gpio()
     p12 = GPIO.PWM(IN12_PWM, PWM_FREQ)
     p12.start(PWM_DUTY)
     p34 = GPIO.PWM(IN34_PWM, PWM_FREQ)
     p34.start(PWM_DUTY)
-    app.run(host='192.168.169.3', port=8080)
+    stop()
+    
+    app.run(host='192.168.31.202', port=3000)

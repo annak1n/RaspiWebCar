@@ -1,32 +1,51 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <title>Jquery Ajax Test</title>
     <style>
-        .button1 {
-            height: 300px;
-            width: 300px;
-            font-size: 100px;
-        }
-        
-        .button2 {
-            height: 300px;
-            width: 600px;
-            font-size: 100px;
+        #myElement {
+            background: silver;
+            height: 1200px;
+            text-align: left;
+            font: 30px/300px Helvetica, Arial, sans-serif;
         }
     </style>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script>
+        $(document).ready(function () {
+            var myElement = document.getElementById('myElement');
+
+            // create a simple instance
+            // by default, it only adds horizontal recognizers
+            var mc = new Hammer(myElement);
+
+            // let the pan gesture support all directions.
+            // this will block the vertical scrolling on a touch-device while on the element
+            mc.get('pan').set({
+                direction: Hammer.DIRECTION_ALL
+            });
+
+            // listen to events...
+            mc.on("panleft panright panup pandown tap press", function (ev) {
+                myElement.textContent = ev.type;
+                $.post("/mydict", {
+                    "touch": ev.type
+                }, function (data, status) {
+                    //alert("direction: " + data.touchDirection);
+                    $("#touchResult").text(data.touchDirection);
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
-    <div class="container">
-        <h2>RaspiWebCar</h2>
-        <form action="/control_car" method="POST">
-            <p><button class="button1" name="ctrlbtn" value="forward">前进</button>
-                <button class="button1" name="ctrlbtn" value="backward">后退</button></p>
-            <p><button class="button2" name="ctrlbtn" value="pause">暂停</button></p>
-            <p><button class="button1" name="ctrlbtn" value="turnleft">左转</button>
-                <button class="button1" name="ctrlbtn" value="turnright">右转</button></p>
-        </form>
-    </div>
-</body>
+    <h1>Ajax + Touch Test</h1>
+    <p id="touchResult">result</p>    
+    <div id="myElement"></div>
+</body
 
 </html>
