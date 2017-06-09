@@ -106,7 +106,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/touchcontrol', methods=['GET', 'POST'])
-def mydict():
+def touchcontrol():
     touch_direction = request.form.get("touch", "null")
     print(touch_direction)
     
