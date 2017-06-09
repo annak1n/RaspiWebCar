@@ -66,3 +66,8 @@ A toy car controlled by raspberry pi through web browser
 * ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring.jpg?raw=true)
 * ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring2.jpg?raw=true)
 * ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring3.jpg?raw=true)
+
+### 6. Control program
+* Flask web server
+* Hammer touch screen library
+* JQuery/AJAX post touch event to server
