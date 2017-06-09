@@ -14,7 +14,7 @@ SEC_NUM = 2
 PWM_FREQ = 1000
 PWM_DUTY = 40
 
-CAR_TIME_OUT = 0.06
+CAR_TIME_OUT = 0.04
 
 def init_gpio():
     GPIO.setmode(GPIO.BOARD)
@@ -144,4 +144,4 @@ if __name__ == '__main__':
     p34.start(PWM_DUTY)
     stop()
     
-    app.run(host='192.168.31.202', port=3000)
+    app.run(host='192.168.43.24', port=3000)
