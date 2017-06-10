@@ -72,10 +72,12 @@ A toy car controlled by raspberry pi through web browser
 * Backend: Flask web server
 * Car Control: Python RPi.GPIO library
 
-### 7. Connect raspberry car with android phone with WIFI
-* To play with it outdoor where there is no router available, need to use WIFI Direct mode to connect car with smart phone.
-  + The easiest way is to use the "hot spot" functionality of smart phone (disable normal wifi and data network). 
-  + One additional benefit is, we can use phone to manage wifi connection status.
+### 7. Connect raspberry car with android smart phone through WIFI
+* To play with it outdoor where there is no router available, need to use WIFI Direct mode.
+  + The easiest way is to use the "hot spot" functionality of smart phone 
+  + Disable normal wifi and data network, then enable WIFI hot spot (setting SSID and password in the first time).
+  + Connect raspberry car with this hot spot as usual (setting a static IP address in Raspbian if neccessary).  
+  + One additional benefit of this way is, we can use phone to manage wifi connection status.
 
 ### 8. Start program and control car
   + Install SSH client JuiceSSH on android phone and login raspberry car.
