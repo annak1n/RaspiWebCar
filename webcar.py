@@ -25,6 +25,10 @@ def init_gpio():
     GPIO.setup(IN12_PWM, GPIO.OUT)
     GPIO.setup(IN34_PWM, GPIO.OUT)
 
+def cleanup():
+    stop()
+    GPIO.cleanup()
+
 def stop():
     GPIO.output(IN1,GPIO.LOW)
     GPIO.output(IN2,GPIO.LOW)
@@ -147,5 +151,9 @@ def main():
     app.run(host='192.168.43.24', port=3000)
 
 if __name__ == '__main__':
-    main()
 
+    try:
+      main()
+    except KeyboardInterrupt:
+      cleanup()
+      print("**** exit program ****")

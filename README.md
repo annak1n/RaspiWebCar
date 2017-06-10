@@ -82,5 +82,5 @@ A toy car controlled by raspberry pi through web browser
 ### 8. Start program and control car
   + Install SSH client JuiceSSH on android phone and login raspberry car.
   + Start program use command: "python webcar.py"
-  + Open browser to connect with Flask server in specified IP address "http://192.168.43.24:3000/"
+  + Open browser to connect to Flask server with specified IP address "http://192.168.43.24:3000/"
   + If success, a control pannel will be displayed in a web page. Use finger to touch on this area to control car moving.
