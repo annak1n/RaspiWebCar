@@ -135,13 +135,17 @@ def touchcontrol():
     d = {'touchDirection': touch_direction}
     return jsonify(d)
 
-if __name__ == '__main__':
-
+def main():
+    # initialize GPIO
     init_gpio()
     p12 = GPIO.PWM(IN12_PWM, PWM_FREQ)
     p12.start(PWM_DUTY)
     p34 = GPIO.PWM(IN34_PWM, PWM_FREQ)
     p34.start(PWM_DUTY)
     stop()
-    
+    # start flask server
     app.run(host='192.168.43.24', port=3000)
+
+if __name__ == '__main__':
+    main()
+
