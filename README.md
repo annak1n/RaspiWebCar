@@ -68,6 +68,17 @@ A toy car controlled by raspberry pi through web browser
 * ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring3.jpg?raw=true)
 
 ### 6. Control program
-* Flask web server
-* Hammer touch screen library
-* JQuery/AJAX post touch event to server
+* Frontend: HTML + JQuery/Ajax + Hammer (touch screen library)
+* Backend: Flask web server
+* Car Control: Python RPi.GPIO library
+
+### 7. Connect raspberry car with android phone with WIFI
+* To play with it outdoor where there is no router available, need to use WIFI Direct mode to connect car with smart phone.
+  + The easiest way is to use the "hot spot" functionality of smart phone (disable normal wifi and data network). 
+  + One additional benefit is, we can use phone to manage wifi connection status.
+
+### 8. Start program and control car
+  + Install SSH client JuiceSSH on android phone and login raspberry car.
+  + Start program use command: "python webcar.py"
+  + Open browser to connect with Flask server in specified IP address "http://192.168.43.24:3000/"
+  + If success, a control pannel will be displayed in a web page. Use finger to touch on this area to control car moving.
