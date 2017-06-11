@@ -63,9 +63,9 @@ A toy car controlled by raspberry pi through web browser
   + 5V battery (Power PI)
   + 12V battery (Power motors)
 
-* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring.jpg?raw=true)
-* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring2.jpg?raw=true)
-* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/wiring3.jpg?raw=true)
+* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/picture/wiring.jpg?raw=true)
+* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/picture/wiring2.jpg?raw=true)
+* ![wiring](https://github.com/neptune46/RaspiWebCar/blob/master/picture/wiring3.jpg?raw=true)
 
 ### 6. Control program
 * Frontend: HTML + JQuery/Ajax + Hammer (touch screen library)
