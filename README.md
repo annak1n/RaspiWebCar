@@ -86,4 +86,4 @@ A toy car controlled by raspberry pi through web browser
   + If success, a control pannel will be displayed in a web page. Use finger to touch on this area to control car moving.
 
 ### 9. Demo video
-  + ![video](https://github.com/neptune46/RaspiWebCar/blob/master/demo/video5.git?raw=true)
+  + ![video](https://github.com/neptune46/RaspiWebCar/blob/master/demo/video5.gif?raw=true)
